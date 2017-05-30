@@ -1,4 +1,4 @@
-#
+п»ї#
 yarn init --yes
 yarn global add gulp-cli
 yarn add gulpjs/gulp#4.0 --dev
@@ -27,5 +27,5 @@ git commit -am 'First'
 git remote add origin https://github.com/boggddan/empty.git
 git push --set-upstream origin master
 
-# Что нужно сделать
+# Р§С‚Рѕ РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ
 git clone 
