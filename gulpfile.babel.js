@@ -38,6 +38,10 @@ const paths = {
   js: {
     src: `${dirs.src}/js/**/*.js`,
     dest: `${dirs.dest}/scripts/`
+  },
+  img: {
+    src: `${dirs.src}/img/**/*.*`,
+    dest: `${dirs.dest}/img/`
   }
 };
 ////////////////////////////////////////
@@ -51,6 +55,10 @@ export const devConnect = () =>
     port: 8888,
     livereload: true
   });
+
+export const bImg = () => src(paths.img.src)
+  .pipe(dest(paths.img.dest))
+  .pipe(connect.reload());
 
 export const bHtml = () => src(paths.html.src)
   .pipe(dest(paths.html.dest))
@@ -81,6 +89,7 @@ export const bCoffee = () => src(paths.coffee.src)
 // Watch Task
 export const devWatch = () => {
   devConnect();
+  watch(paths.img.src, bImg);
   watch(paths.html.src, bHtml);
   watch(paths.slim.src, bSlim);
   watch(paths.sass.src, bSass);
@@ -89,5 +98,5 @@ export const devWatch = () => {
 };
 
 // Development Task
-export const dev = series(clean, parallel(bHtml, bSlim, bSass, bJs, bCoffee), devWatch);
+export const dev = series(clean, parallel(bImg, bHtml, bSlim, bSass, bJs, bCoffee), devWatch);
 export default dev;
