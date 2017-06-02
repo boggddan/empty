@@ -57,9 +57,14 @@ git clone https://github.com/boggddan/empty.git
 cd empty
 ```
 
-#### 3. *Запускаем **Yarn** для добавления всех *
+#### 3. *Запускаем **Yarn** для добавления всех*
 ```bash
 yarn install
 ```
 
-#### 4. Let's go! :octocat:
+#### 4. *Запускаем **Gulp** для выполения задач*
+```bash
+gulp
+```
+
+#### 5. *Let's go! :octocat:*
