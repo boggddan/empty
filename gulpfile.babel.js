@@ -7,14 +7,15 @@ import slim from 'gulp-slim';
 import coffee from 'gulp-coffee';
 
 import del from 'del';
+import concat from 'gulp-concat';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
 import connect from 'gulp-connect';
 
-
 ////////////////////////////////////////
 const dirs = {
   src: 'src',
+  lib: 'node_modules',
   dest: 'app'
 };
 
@@ -55,6 +56,12 @@ export const devConnect = () =>
     port: 8888,
     livereload: true
   });
+
+export const bLib = () =>
+   src([`${dirs.lib}/jquery/dist/jquery.slim.js`,
+        `${dirs.lib}/moment/min/moment-with-locales.min.js`])
+  .pipe(concat('lib.js'))
+  .pipe(dest(paths.js.dest));
 
 export const bImg = () => src(paths.img.src)
   .pipe(dest(paths.img.dest))
@@ -98,5 +105,5 @@ export const devWatch = () => {
 };
 
 // Development Task
-export const dev = series(clean, parallel(bImg, bHtml, bSlim, bSass, bJs, bCoffee), devWatch);
+export const dev = series(clean, parallel(bLib, bImg, bHtml, bSlim, bSass, bJs, bCoffee), devWatch);
 export default dev;
