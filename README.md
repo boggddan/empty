@@ -78,7 +78,7 @@ git clone https://github.com/boggddan/empty.git
 cd empty
 ```
 
-#### 3. *Запускаем [**Yarn**]((https://yarnpkg.com/lang/en/)) для добавления всех*
+#### 3. *Запускаем [**Yarn**](https://yarnpkg.com/lang/en/) для добавления всех*
 
 ```bash
 yarn install
